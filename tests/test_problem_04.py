@@ -1,26 +1,31 @@
 from typing import Callable, List, Tuple
 
-from problem_03 import concatenate
+from problem_04 import filter_even
 from .base_test_problem import BaseTestProblem
 
 
-class TestProblem03(BaseTestProblem):
-    _problem_func: Callable = concatenate
+class TestProblem04(BaseTestProblem):
+    _problem_func: Callable = filter_even
     cases: List[Tuple[List, List, str]] = [
         (
-            [["Apple", "Black", "Windows"], [14, "RED", "XP"]],
-            ["apple_14", "black_red", "windows_xp"],
+            [[1, 2, 4, 5, 6, 4]],
+            [2, 4, 6, 4],
             "Base case",
         ),
         (
-            [[], []],
+            [[]],
             [],
-            "Empty Lists",
+            "Empty List",
         ),
         (
-            [["Apple", "Black", "Windows"], [14, "RED"]],
-            ["apple_14", "black_red"],
-            "Uneven Lists",
+            [[-2, 1, 2, 4, 5, 6]],
+            [-2, 2, 4, 6],
+            "Negative",
+        ),
+        (
+            [[0, 4, 5]],
+            [0, 4],
+            "Zero",
         ),
     ]
 
